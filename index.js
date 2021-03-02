@@ -6,12 +6,12 @@ const images = {
 };
 
 const trees = document.querySelectorAll(".tree").forEach(item => {
-  item.addEventListener('mouseover', event => {
-    if (item.classList.contains('treasure')) {
-      console.log('Skarb!')
+  item.addEventListener("mouseover", event => {
+    if (item.classList.contains("treasure")) {
+      item.innerHTML = images.treasure;
+      alert("Znalazłeś SKARB!!!!");
     } else {
-      console.log('Drzewo')
+      item.innerHTML = images.leafs;
     }
-  })
-})
-
+  });
+});
