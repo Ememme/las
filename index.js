@@ -4,7 +4,7 @@ import { Howl } from "howler";
 const sound = new Howl({
   src: [
     "https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/openhat.wav"
-  ]
+    ]
 });
 
 const images = {
@@ -12,14 +12,20 @@ const images = {
   leafs: "🍃"
 };
 
-const trees = document.querySelectorAll(".tree").forEach(item => {
+const forrest = document.querySelectorAll(".tree");
+
+forrest.forEach(item => {
   item.addEventListener("mouseover", event => {
-    if (item.classList.contains("treasure")) {
+    if (event.target.classList.contains("treasure")) {
       item.innerHTML = images.treasure;
-      sound.play();
-      alert("Znalazłeś SKARB!!!!");
+      congratulations();
     } else {
       item.innerHTML = images.leafs;
     }
   });
 });
+
+function congratulations() {
+  sound.play();
+  alert("Znalazłeś skarb");
+}
